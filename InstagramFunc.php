@@ -59,7 +59,7 @@ function Login($username, $password, $cookie)
             "x-requested-with: XMLHttpRequest"
         ]
     );
-    if (strpos($login[2], '"authenticated": true')) {
+    if (strpos($login[2], '"authenticated":true')) {
         return array(
                 "Response" => "Success",
                 "Data" => "ig_did=".$cookie['Data']['Ig_did']."; mid=".$cookie['Data']['Mid']."; csrftoken=".$login[3]['csrftoken']."; ds_user_id=".$login[3]['ds_user_id']."; sessionid=".$login[3]['sessionid']."; rur=FTW; ig_direct_region_hint=PRN;",
@@ -78,7 +78,7 @@ function Login($username, $password, $cookie)
 function InfoAccount($username, $cookie)
 {
     $InfoAccount = curl(
-        API.'/'.$username.'/?__a=1',
+        API.'/'.$username.'/?__a=1&__d=dis',
         'GET',
         null,
         null,
